@@ -1,0 +1,15 @@
+services:
+  ros:
+    extends:
+      file: ../common/compose.yaml
+      service: common-ros
+
+    environment:
+      # display
+      - DISPLAY=${DISPLAY}
+
+    volumes:
+      # mount x11 display socket
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # mount all devices
+      - /dev:/dev:rw

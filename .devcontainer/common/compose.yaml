@@ -1,0 +1,28 @@
+services:
+  common-ros:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # default network mode
+    network_mode: host
+
+    # common environment variables
+    environment:
+    # ROS
+    - ROS_DOMAIN_ID=5  
+    # DDS 
+    - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+
+    # capabilities
+    privileged: true
+
+    # commont mounts
+    volumes:
+      # sync source dir
+      - ../../src/:/root/ws/src
+
+    # default entrypoint command
+    command: sleep infinity
+
+    

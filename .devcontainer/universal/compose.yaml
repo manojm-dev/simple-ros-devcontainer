@@ -1,0 +1,21 @@
+services:
+  ros:
+    extends:
+      file: ../common/compose.yaml
+      service: common-ros
+
+    network_mode: service:novnc
+
+    environment:
+      # Display
+      - DISPLAY=novnc:0.0
+
+  novnc:
+    image: manojm003/novnc:latest
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1366
+      - DISPLAY_HEIGHT=768
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"

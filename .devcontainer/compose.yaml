@@ -1,0 +1,26 @@
+services:
+  ros:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # capabilities
+    privileged: true
+
+    environment:
+      # Display
+      - DISPLAY=${DISPLAY}
+      # ROS
+      - ROS_DOMAIN_ID=5
+      # DDS 
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+
+    volumes:
+      # x11 display socket
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # devices
+      - /dev/:/dev/:rw
+      # sync source dir
+      - ../src/:/root/ws/src
+
+    command: sleep infinity

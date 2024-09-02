@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - ROS_DISTRO=humble
       
     # common environment variables
     environment:

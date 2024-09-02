@@ -20,6 +20,8 @@ services:
     volumes:
       # sync source dir
       - ../../src/:/root/ws/src
+      # syncd devcontainer dir
+      - ../../.devcontainer/:/root/ws/.devcontainer
 
     # default entrypoint command
     command: sleep infinity

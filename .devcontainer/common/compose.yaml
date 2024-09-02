@@ -3,10 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
-    # default network mode
-    network_mode: host
-
+      
     # common environment variables
     environment:
     # ROS

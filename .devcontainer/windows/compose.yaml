@@ -1,0 +1,29 @@
+services:
+  ros:
+    extends:
+      file: ../common/compose.yaml
+      service: common-ros
+
+    environment:
+      # Specifies the display to use
+      - DISPLAY=:0
+
+      # Specifies the wayland display server socket
+      - WAYLAND_DISPLAY=wayland-0
+
+      # Specifies the runtime directory for Wayland
+      - XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+
+      # Specifies the PulseAudio server socket 
+      - PULSE_SERVER=/mnt/wslg/PulseServer
+
+      # Disables the MIT-SHM extension for Qt apps to avoid issues with shared memory in X11
+      - QT_X11_NO_MITSHM=1
+
+    volumes:
+
+      # Mount x11 display socket
+      - /run/desktop/mnt/host/wslg/.X11-unix:/tmp/.X11-unix
+
+      # Mount wsl graphic & audio sockets
+      - /run/desktop/mnt/host/wslg:/mnt/wslg

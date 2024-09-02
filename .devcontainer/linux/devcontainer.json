@@ -1,5 +1,5 @@
 {
-	"name": "Linux",
+	"name": "🐧 Linux",
 	"dockerComposeFile": ["compose.yaml"],
 	"service":"ros", 
 

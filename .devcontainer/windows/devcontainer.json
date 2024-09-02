@@ -1,5 +1,5 @@
 {
-	"name": "Windows",
+	"name": "🪟 Windows",
 	"dockerComposeFile": ["compose.yaml"],
 	"service":"ros", 
 

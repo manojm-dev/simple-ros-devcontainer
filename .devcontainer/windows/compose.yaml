@@ -4,6 +4,8 @@ services:
       file: ../common/compose.yaml
       service: common-ros
 
+    network_mode: host
+
     environment:
       # Specifies the display to use
       - DISPLAY=:0
